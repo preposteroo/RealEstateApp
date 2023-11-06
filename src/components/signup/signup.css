@@ -1,0 +1,19 @@
+.background{
+    position: absolute;
+    background-image: url("https://www.bonjourquebec.com/sites/default/files/styles/square/public/2019-12/Vue-du-belvedere-Montreal-C1-1.jpg.webp?itok=IUdggjxe");
+    height:100%;
+    width:100%;
+}
+.signUpContainer{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    border-radius: 25px;
+    width: 400px;
+    height: 550px;
+    background-color: rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 10px #000;
+    color: white;
+    text-align: center; 
+}
