@@ -1,0 +1,31 @@
+.Listing{
+    width: 100%;
+    max-width:1024px;
+    border: 2px solid black;
+    border-radius: 20px;
+    display:flex;
+    margin-bottom: 20px;
+}
+.listingTitle{
+    color:rgb(117, 145, 115);
+}
+.listImg{
+    width:350px;
+    margin:30px;
+    border-radius: 20px;
+}
+
+.info{
+    position:relative;
+    margin-left:5px;
+    margin-top:10px;
+}
+
+.favs{
+    display:flex;
+}
+
+.heartBtn{
+    border-style:none;
+    background-color:white;
+}

@@ -1,0 +1,70 @@
+.featured{
+    max-width: 1024px;
+}
+.Location{
+    font-family: sans-serif;
+}
+.featuredLocation{
+    max-width: 1024px;
+    display:flex;
+    gap:40px;
+}
+.featuredItem{
+    border: 2px solid black;
+    border-radius: 20px;
+    display:block;
+    width:400px;
+    height:380px;
+    margin-bottom: 20px;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+
+}
+.featuredImg{
+    width:98%;
+    margin:3px;
+    border-radius: 20px;
+}
+.featuredTitles{
+    padding-left: 10px;
+}
+
+.Property{
+    max-width: 1024px;
+}
+.featuredProperty{
+    max-width: 1024px;
+    display:flex;
+    gap: 15px;
+}
+.propertyImg{
+    border-radius:20px;
+    width:100%;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+
+.Listing{
+    border: 2px solid black;
+    border-radius: 20px;
+    display:flex;
+    margin-bottom: 20px;
+}
+.listingTitle{
+    color:rgb(117, 145, 115);
+}
+.listImg{
+    width:350px;
+    margin:30px;
+    border-radius: 20px;
+}
+
+.info{
+    position:relative;
+    margin-left:5px;
+    margin-top:10px;
+}
+
+.favs{
+    position:relative;
+    margin-left:240px;
+
+}
