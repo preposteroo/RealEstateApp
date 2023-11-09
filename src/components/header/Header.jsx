@@ -47,7 +47,7 @@ const handleOption = (name, operation) => {
 
                 <div className="headerListItem active">
                 <FontAwesomeIcon icon={faCaretDown} style={{color: "#000000",}} />
-                <span>&#160; Mortgage Calculator </span>  
+                <span onClick={() => openInNewTab("http://localhost:3000/mortgage")}>&#160; Mortgage Calculator </span>  
                 </div>
 
             </div>

@@ -1,5 +1,6 @@
 import Navbar from "../../components/navbar/Navbar";
 import Brokerheader from "../../components/brokerheader/Brokerheader";
+import Featured from "../../components/featured/Featured";
 import "./brokerpage.css";
 
 
@@ -9,7 +10,7 @@ const Brokerpage = () => {
             <Navbar/>
             <Brokerheader type="home"/>
             <div className="homeContainer">
-
+            <Featured/>
             </div>
         </div>
     );

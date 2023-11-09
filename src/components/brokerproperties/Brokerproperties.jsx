@@ -5,24 +5,24 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBed, faHeart, faRuler, faSink,} from "@fortawesome/free-solid-svg-icons";
 
 const BrokerProperties = () => {
-  const { bName } = useParams();
+  const {id} = useParams();
   const [properties, setProperties] = useState([]);
 
   useEffect(() => {
     const fetchPropertiesByBroker = async () => {
       try {
-        const res = await axios.get(`http://localhost:8800/new_table?bName=${bName}`);
+        const res = await axios.get(`http://localhost:8800/new_table/search?bName=${id}`);
         setProperties(res.data);
       } catch (err) {
         console.log(err);
       }
     }
     fetchPropertiesByBroker();
-  }, [bName]);
+  }, [id]);
 
   return (
     <div>
-      <h1>Properties listed by {bName}:</h1>
+      <h1>Properties listed by {id}:</h1>
       {properties.length > 0 ? (
         properties.map((property) => (
           <div className="propertyInfo" key={property.id}>
@@ -43,7 +43,7 @@ const BrokerProperties = () => {
           </div>
         ))
       ) : (
-        <p>No properties listed by {bName}.</p>
+        <p>No properties listed by {id}.</p>
       )}
     </div>
   );

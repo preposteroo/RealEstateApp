@@ -11,6 +11,7 @@ import axios from "axios";
 const FindBroker = () => {
     const [formValues, setFormValues] = useState([])
     const [filteredBrokers, setFilteredBrokers] = useState([]);
+    const [requestInfo, setRequestInfo] = useState([]);
 
     useEffect(()=>{
         const  fetchAllBooks = async ()=>{
@@ -29,6 +30,17 @@ const FindBroker = () => {
         );
         setFilteredBrokers(filteredResults);
       };
+      const handleSubmitRequest = async (nameBroker) => {
+        try {
+          await axios.post("http://localhost:8800/test", {
+            nameBroker: nameBroker,
+            request: requestInfo,
+          });
+          setRequestInfo("");
+        } catch (err) {
+          console.log(err);
+        }
+      };
 
     return (
         <div>
@@ -41,11 +53,22 @@ const FindBroker = () => {
           {filteredBrokers.length > 0 ? (
             filteredBrokers.map((broker) => (
               <div className="brokerInfo" key={broker.idBroker}>
-                <div className="broker">Name: {broker.name}</div>
+                <div className="broker_name">Name: {broker.name}</div>
                 <div className="company">Company: {broker.company}</div>
                 <div className="licenseNum">License: {broker.licenseNum}</div>
                 <div className="email">Email: {broker.email}</div>
-                <Link to={`/properties/${encodeURIComponent(broker.name)}`}>View Properties By This Broker</Link>
+                <Link to={`/brokerProperties/${encodeURIComponent(broker.name)}`}>View Properties By This Broker</Link>
+                <br/><br/>
+                <div className="request">
+                <label>Request Information, Make sure to include a contact method!</label><br/>
+                <textarea
+                name="requestinfo"
+                id="request"
+                value={requestInfo}
+                onChange={(e) => setRequestInfo(e.target.value)}>
+                </textarea><br/>
+                <button onClick={() => handleSubmitRequest(broker.name)}>Request Info</button>
+                </div>
               </div>
             ))
           ) : (

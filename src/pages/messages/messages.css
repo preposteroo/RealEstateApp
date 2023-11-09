@@ -1,0 +1,13 @@
+.note{
+    border: 2px solid black;
+    margin:20px;
+    display:flex;
+    max-width:500px;
+}
+
+.btn{
+    position: absolute;
+    margin-left:380px;
+    margin-top: auto;
+    padding:20px;
+}

@@ -15,7 +15,8 @@ import Brokerpage from "./pages/brokerpage/Brokerpage";
 import Buybroker from "./pages/buybroker/Buybroker";
 import BrokerProperties from "./components/brokerproperties/Brokerproperties";
 import Propertydetails from "./components/propertydetails/Propertydetails";
-
+import Message from "./pages/messages/Messages";
+import Request from "./pages/request/Request";
 
 
 function App() {
@@ -33,6 +34,9 @@ function App() {
         <Route path="/brokerpage" element={<Brokerpage/>}/>
         <Route path="/buybroker" element={<Buybroker/>}/>
         <Route path="/properties/:id" element={<Propertydetails/>} />
+        <Route path="/brokerProperties/:id" element={<BrokerProperties />} />
+        <Route path="/message" element={<Message/>}/>
+        <Route path="/request" element={<Request/>}/>
       </Routes>
       </BrowserRouter>
 

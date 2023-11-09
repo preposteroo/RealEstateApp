@@ -15,13 +15,17 @@ const Login = () => {
     const handleLogin = () => {
         axios.post("http://localhost:8800/broker", { email, password })
             .then((response) => {
+                const token = response.data.token;
+                const user = response.data.user;
+                localStorage.setItem("token", token);
+                localStorage.setItem("user", JSON.stringify(user));
                 console.log(response.data);
                 openInNewTab("http://localhost:3000/brokerpage");
             })
             .catch((error) => {
                 console.error(error);
             });
-    };
+                            };
 
     return (
         <div>

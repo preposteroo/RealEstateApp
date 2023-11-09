@@ -27,7 +27,7 @@ const handleOption = (name, operation) => {
 
             <div className="headerListItem active">
              <FontAwesomeIcon icon={faCaretDown} style={{color: "#000000",}} />
-                <span onClick={() => openInNewTab("http://localhost:3000/")}> &#160;Home Page </span>  
+                <span onClick={() => openInNewTab("http://localhost:3000/brokerpage")}> &#160;Home Page </span>  
                 </div>
 
                 <div className="headerListItem active">
@@ -42,7 +42,12 @@ const handleOption = (name, operation) => {
 
                 <div className="headerListItem active">
                 <FontAwesomeIcon icon={faCaretDown} style={{color: "#000000",}} />
-                <span>&#160; Messages </span>  
+                <span onClick={() => openInNewTab("http://localhost:3000/message")}>&#160; Offers </span>  
+                </div>
+
+                <div className="headerListItem active">
+                <FontAwesomeIcon icon={faCaretDown} style={{color: "#000000",}} />
+                <span onClick={() => openInNewTab("http://localhost:3000/request")}>&#160; Requests </span>  
                 </div>
 
             </div>
