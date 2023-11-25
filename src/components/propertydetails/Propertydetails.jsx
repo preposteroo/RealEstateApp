@@ -61,6 +61,9 @@ const Propertydetails = () => {
           ...prev,
           toName: res.data.bName,
           propAddress: res.data.address,
+          fromName: JSON.parse(localStorage.getItem("user")).name,
+          licenseNumber: JSON.parse(localStorage.getItem("user")).licenseNum,
+          agency: JSON.parse(localStorage.getItem("user")).company,
         }));
   
         setProperty(res.data);
@@ -125,33 +128,6 @@ const Propertydetails = () => {
         <div className="contact">
           <h2 className="contactUs">Contact The Broker of this Listing</h2>
           <form className="contact_form">
-            <label>Your Name:<br/> </label>
-            <input
-            type="text"
-            name="fromName"
-            id="fromname"
-            className="name_input"
-            value={formValues.fromName}
-            onChange={handleChange}
-            /><br/>
-            <label>Your License Number:<br/> </label>
-            <input
-            type="text"
-            name="licenseNumber"
-            id="licensenumber"
-            className="license_input"
-            value={formValues.licenseNumber}
-            onChange={handleChange}
-            /><br/>
-            <label>Your Agency:<br/> </label>
-            <input
-            type="text"
-            name="agency"
-            id="agency_name"
-            className="agency_input"
-            value={formValues.agency}
-            onChange={handleChange}
-            />
             <label><br/> <br/>Your Client's Name:<br/> </label>
             <input
             type="text"
