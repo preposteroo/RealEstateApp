@@ -6,6 +6,15 @@ const Message = () => {
   const [messages, setMessages] = useState([]);
   const user = JSON.parse(localStorage.getItem("user")); 
 
+  const handleDecline = async (messageId) => {
+    try {
+      await axios.delete(`http://localhost:8800/messages/${messageId}`);
+      setMessages((prevMessages) => prevMessages.filter((message) => message.id !== messageId));
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   useEffect(() => {
     const token = localStorage.getItem('token');
     const userName = user.name;
@@ -50,7 +59,7 @@ const Message = () => {
               </div>
               <div className="btn">
               <button className="accept">Accept Offer </button><br/>
-              <button className="decline">Decline Offer </button>
+              <button className="decline" onClick={() => handleDecline(message.id)}>Decline Offer </button>
               </div>
             </div>
         ))}
