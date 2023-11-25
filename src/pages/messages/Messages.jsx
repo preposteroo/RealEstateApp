@@ -49,7 +49,8 @@ const Message = () => {
               <b>Email: </b>{message.buyerEmail}<br/>
               </div>
               <div className="btn">
-              <button className="accept">Accept Offer </button>
+              <button className="accept">Accept Offer </button><br/>
+              <button className="decline">Decline Offer </button>
               </div>
             </div>
         ))}
