@@ -260,6 +260,21 @@ app.delete("/new_table/:id",(req,res)=>{
     })
 })
 
+app.delete("/messages/:id",(req,res)=>{
+    const messageId = req.params.id;
+    const q = "DELETE FROM messages WHERE id= ?"
+
+    db.query(q,[messageId], (err,data)=>{
+        if (err) {
+            console.error("Database Insertion Error:", err);
+            res.status(500).json({ error: "An error occurred while inserting the data into the database." });
+        } else {
+            console.log("Listing has been deleted successfully !");
+            res.json("Listing has been deleted successfully !");
+        }
+    })
+})
+
 app.listen(8800,() =>{
     console.log("Connected to backend!")
 })
