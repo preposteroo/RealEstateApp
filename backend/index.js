@@ -218,7 +218,7 @@ app.post("/new_table", (req,res)=>{
 })
 
 app.post("/messages", (req,res)=>{
-    const q = "INSERT INTO messages (`toName`, `fromName`, `message`, `offer`, `buyerEmail`,`buyerAddress`,`buyerName`,`deedDate`,`moveDate`,`propAddress`,`licenseNumber`,`agency`) VALUES (?)"
+    const q = "INSERT INTO messages (`toName`, `fromName`, `message`, `offer`, `buyerEmail`,`buyerAddress`,`buyerName`,`deedDate`,`moveDate`,`propAddress`,`licenseNumber`,`agency`,`status`) VALUES (?)"
     const values = [
         req.body.toName,
         req.body.fromName,
@@ -232,6 +232,7 @@ app.post("/messages", (req,res)=>{
         req.body.propAddress,
         req.body.licenseNumber,
         req.body.agency,
+        req.body.status,
     ]
 
     db.query(q,[values],(err,data)=>{
@@ -245,7 +246,40 @@ app.post("/messages", (req,res)=>{
     })
 })
 
-app.delete("/new_table/:id",(req,res)=>{
+app.delete("/new_table/:param", (req, res) => {
+    const paramValue = req.params.param;
+    const isNumeric = !isNaN(paramValue); 
+  
+    let columnName;
+    let placeholder;
+  
+    if (isNumeric) {
+      columnName = "id";
+      placeholder = "id";
+    } else {
+      columnName = "address";
+      placeholder = "address";
+    }
+  
+    const q = `DELETE FROM new_table WHERE ${columnName} = ?`;
+  
+    db.query(q, [paramValue], (err, data) => {
+      if (err) {
+        console.error("Database Deletion Error:", err);
+        res.status(500).json({ error: "An error occurred while deleting the data from the database." });
+      } else {
+        if (data.affectedRows > 0) {
+          console.log("Listing has been deleted successfully !");
+          res.json("Listing has been deleted successfully !");
+        } else {
+          res.status(404).json({ error: "No matching record found for deletion." });
+        }
+      }
+    });
+  });
+  
+  
+{/*app.delete("/new_table/:id",(req,res)=>{
     const listId = req.params.id;
     const q = "DELETE FROM new_table WHERE id= ?"
 
@@ -259,6 +293,21 @@ app.delete("/new_table/:id",(req,res)=>{
         }
     })
 })
+
+app.delete("/new_table/:address",(req,res)=>{
+    const listId = req.params.address;
+    const q = "DELETE FROM new_table WHERE address= ?"
+
+    db.query(q,[listId], (err,data)=>{
+        if (err) {
+            console.error("Database Insertion Error:", err);
+            res.status(500).json({ error: "An error occurred while inserting the data into the database." });
+        } else {
+            console.log("Listing has been deleted successfully !");
+            res.json("Listing has been deleted successfully !");
+        }
+    })
+})*/}
 
 app.delete("/messages/:id",(req,res)=>{
     const messageId = req.params.id;
@@ -274,6 +323,23 @@ app.delete("/messages/:id",(req,res)=>{
         }
     })
 })
+
+app.put("/messages/:messageId", (req, res) => {
+    const messageId = req.params.messageId;
+    const newStatus = req.body.status;
+  
+    const q = "UPDATE messages SET status = ? WHERE id = ?";
+  
+    db.query(q, [newStatus, messageId], (err, data) => {
+      if (err) {
+        console.error("Database Update Error:", err);
+        res.status(500).json({ error: "An error occurred while updating the data in the database." });
+      } else {
+        console.log("Message status has been updated successfully!");
+        res.json("Message status has been updated successfully!");
+      }
+    });
+  });
 
 app.listen(8800,() =>{
     console.log("Connected to backend!")
