@@ -28,6 +28,7 @@ const Propertydetails = () => {
     propAddress:"",
     licenseNumber:"",
     agency:"",
+    status:"",
   });
 
   const handleChange = (e) => {
@@ -61,6 +62,7 @@ const Propertydetails = () => {
           ...prev,
           toName: res.data.bName,
           propAddress: res.data.address,
+          status: "pending",
           fromName: JSON.parse(localStorage.getItem("user")).name,
           licenseNumber: JSON.parse(localStorage.getItem("user")).licenseNum,
           agency: JSON.parse(localStorage.getItem("user")).company,

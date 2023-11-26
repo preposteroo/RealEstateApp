@@ -15,10 +15,20 @@ const Message = () => {
     }
   };
 
+  const handleAccept = async (messageId, propAddress) => {
+    try {
+      await axios.delete(`http://localhost:8800/new_table/${propAddress}`);
+
+      await axios.put(`http://localhost:8800/messages/${messageId}`, { status: 'Sold!' });
+      setMessages((prevMessages) => prevMessages.filter((message) => message.id !== messageId));
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   useEffect(() => {
     const token = localStorage.getItem('token');
     const userName = user.name;
-    console.log(userName);
     
     axios.get('http://localhost:8800/messages', {
       headers: {
@@ -34,7 +44,7 @@ const Message = () => {
       .catch((error) => {
         console.error(error);
       });
-  }, [user]);
+  }, []);
 
   return (
     <div>
@@ -58,7 +68,7 @@ const Message = () => {
               <b>Email: </b>{message.buyerEmail}<br/>
               </div>
               <div className="btn">
-              <button className="accept">Accept Offer </button><br/>
+              <button className="accept" onClick={() => handleAccept(message.id,message.propAddress)}>Accept Offer </button><br/>
               <button className="decline" onClick={() => handleDecline(message.id)}>Decline Offer </button>
               </div>
             </div>
