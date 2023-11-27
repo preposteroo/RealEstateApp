@@ -1,13 +1,37 @@
 .note{
-    border: 2px solid black;
+    border: 2px solid white;
+    padding:10px;
+    border-radius: 20px;
     margin:20px;
-    display:flex;
-    max-width:500px;
+    background-color: rgb(129, 158, 127);
+    max-width:600px;
+}
+.messageInfo{
+    background-color: rgb(129, 158, 127);
+    font-size: large;
+    color: white;
 }
 
-.btn{
-    position: absolute;
-    margin-left:380px;
-    margin-top: auto;
-    padding:20px;
+.actualMessage{
+    background-color: white;
+    border-radius: 10px;
+    padding:5px;
+}
+.accept{
+    margin-top: 5px;
+    color:rgb(129, 158, 127);
+    width:200px;
+    height:50px;
+    font-size: large;
+    border-radius: 10px;
+    
+}
+.decline{
+    color:rgb(129, 158, 127);
+    width:200px;
+    height:50px;
+    font-size: large;
+    border-radius: 10px;
+    
+
 }
