@@ -1,6 +1,6 @@
 import { render, screen, fireEvent, act } from '@testing-library/react';
 import axios from 'axios';
-import Buy from './Buy';
+import Buy from 'src/pages/buy/Buy.jsx';
 
 jest.mock('axios');
 
