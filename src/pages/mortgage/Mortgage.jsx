@@ -7,7 +7,6 @@ const Mortgage = () => {
     const [formValues, setFormValues] = useState({
         value: 0,
         down: 0,
-        loan: 0,
         rate: 0,
         tenure: 0,
         monthlyPayment: 0,
@@ -20,47 +19,47 @@ const Mortgage = () => {
 
       const calculateMortgage = (event) => {
         event.preventDefault();
-        // Mortgage calculation logic
-        const P = parseFloat(formValues.value - formValues.down);
+        const P = parseFloat(formValues.value) - parseFloat(formValues.down);
         const r = (parseFloat(formValues.rate) / 100) / 12;
         const n = parseFloat(formValues.tenure) * 12;
-        const monthlyPayment = (P * r) / (1 - Math.pow(1 + r, -n));
+        const monthlyPayment = ((P * r * Math.pow(1+r,n)) / (Math.pow(1 + r, n)-1)).toFixed(2);
         setFormValues({ ...formValues, monthlyPayment });
       };
    
     return (
         <div>
             <Navbar/>
-            <Header/>
+            <Header type="home"/>
             <div className="homeContainer">
                 <div className="mortgageCalculator">
                 <form onSubmit={calculateMortgage}>
-      <label>Home Value:
-        <input type="number" name="value" value={formValues.value} onChange={handleInputChange}/> 
+         <div className="payment">
+          <h4>Monthly Payment: ${formValues.monthlyPayment}</h4>
+        </div>
+        <div className="calculator">
+      <label className="labelInput">
+        <span className="spanInput">Home Value:</span> 
+        <input type="number" name="value" className="morInput" value={formValues.value} onChange={handleInputChange}/> 
         <br></br>
       </label>
-      <label>Down Payment:
-        <input type="number" name="down" value={formValues.down} onChange={handleInputChange}/>
+      <label className="labelInput">
+        <span className="spanInput">Down Payment:</span>
+        <input type="number" name="down" className="morInput" value={formValues.down} onChange={handleInputChange}/>
         <br></br>
       </label>
-      <label>Loan Amount:
-        <input type="number" name="loan" value={formValues.loan} onChange={handleInputChange}/> 
+      <label className="labelInput">
+        <span className="spanInput">Interest Rate:</span>
+        <input type="number" name="rate" className="morInput" value={formValues.rate} onChange={handleInputChange}/> 
         <br></br>
       </label>
-      <label>Interest Rate:
-        <input type="number" name="rate" value={formValues.rate} onChange={handleInputChange}/> 
-        <br></br>
-      </label>
-      <label>Tenure:
-        <input type="number" name="tenure" value={formValues.tenure} onChange={handleInputChange}/> 
+      <label className="labelInput">
+        <span className="spanInput">Tenure:</span>
+        <input type="number" name="tenure" className="morInput" value={formValues.tenure} onChange={handleInputChange}/> 
         <br></br>
         </label>
-        <button type="submit">Calculate!</button>
-        </form>
-        <div>
-          <h2>Monthly Payment: ${formValues.monthlyPayment}</h2>
         </div>
-
+        <button className = "submitBtn" type="submit">Calculate!</button>
+        </form>
                 </div>
             </div>
             
