@@ -1,4 +1,6 @@
 import "./messages.css";
+import Navbar from "../../components/navbar/Navbar";
+import Brokerheader from "../../components/brokerheader/Brokerheader";
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
@@ -48,17 +50,22 @@ const Message = () => {
 
   return (
     <div>
-      <h1>Messages</h1>
+          <Navbar/>
+          <Brokerheader type="home"/>
+    <div>
+      <h1>Your Messages</h1>
       <ul>
         {messages.map((message) => (
           
           <div className="note" key={message.id}>
             <div className="message">
+              <div className="messageInfo">
             <b>New Message regarding {message.propAddress}: </b> <br/> <br/>
+            <b>From: {message.fromName} | License Number: {message.licenseNumber} | Company: {message.agency}</b> <br/> <br/> 
+            </div>
+            <div className="actualMessage">
               <b>Message: <br/></b> <p>Hi! It's {message.fromName}.<br/> 
-              Here's my license number: {message.licenseNumber}<br/> 
-              Here is the agency I work for: {message.agency}<br/> 
-              My client would like to make an <b>offer of {message.offer}$</b>. <br/>
+              My client would like to make an <b>offer of {message.offer}</b>. <br/>
               They would like to finalize the deed of sale on {message.deedDate} <br/>and are planning 
               on moving in on {message.moveDate}.<br/><br/>
               </p>Here's a little message from the buyer: {message.message}<br/><br/>
@@ -67,6 +74,7 @@ const Message = () => {
               <b>Current Address: </b> {message.buyerAddress}<br/>
               <b>Email: </b>{message.buyerEmail}<br/>
               </div>
+              </div>
               <div className="btn">
               <button className="accept" onClick={() => handleAccept(message.id,message.propAddress)}>Accept Offer </button><br/>
               <button className="decline" onClick={() => handleDecline(message.id)}>Decline Offer </button>
@@ -74,6 +82,7 @@ const Message = () => {
             </div>
         ))}
       </ul>
+    </div>
     </div>
   );
 };
