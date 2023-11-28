@@ -67,46 +67,56 @@ const Test = () => {
         <br></br>
         </div>
         <div className="propertyInfo">
-    <label>
+    
+      <div className="add">
       <h1>Add A Property</h1>
+      </div>
+      <div className="square">
+      <div className="form">
+      <label>
       Address:
-      <input type="text" name="address" value={formValues.address} onChange={handleChange}/> 
+      <input type="text" name="address" className="formInput" value={formValues.address} onChange={handleChange}/> 
       <br></br>
     </label>
     <label>Location:
-      <input type="text" name="location" value={formValues.location} onChange={handleChange}/>
+      <input type="text" name="location" className="formInput" value={formValues.location} onChange={handleChange}/>
       <br></br>
     </label>
     <label>Property Price:
-      <input type="number" name="price" value={formValues.price} onChange={handleChange}/> 
+      <input type="number" name="price" className="formInput" value={formValues.price} onChange={handleChange}/> 
       <br></br>
     </label>
     <label>Number of Bedrooms:
-      <input type="number" name="numBed" value={formValues.numBed} onChange={handleChange}/> 
+      <input type="number" name="numBed" className="formInput" value={formValues.numBed} onChange={handleChange}/> 
       <br></br>
     </label>
     <label>Number of Bathrooms:
-      <input type="number" name="numBath" value={formValues.numBath} onChange={handleChange}/> 
+      <input type="number" name="numBath" className="formInput" value={formValues.numBath} onChange={handleChange}/> 
       <br></br>
     </label>
     <label>Square Footage:
-      <input type="number" name="sqf" value={formValues.sqf} onChange={handleChange}/> 
+      <input type="number" name="sqf" className="formInput" value={formValues.sqf} onChange={handleChange}/> 
       <br></br>
     </label>
     <label>Broker Name:
-      <input type="text" name="bName" value={formValues.bName} onChange={handleChange}/> 
+      <input type="text" name="bName" className="formInput" value={formValues.bName} onChange={handleChange}/> 
       <br></br>
     </label>
     <label>Enter Broker Company:
-      <input type="text" name="bCompany" value={formValues.bCompany} onChange={handleChange}/> 
+      <input type="text" name="bCompany" className="formInput" value={formValues.bCompany} onChange={handleChange}/> 
       <br></br>
     </label>
     <label>IMG source:
-      <input type="text" name="imgsource" value={formValues.imgsource} onChange={handleChange}/> 
+      <input type="text" name="imgsource" className="formInput" value={formValues.imgsource} onChange={handleChange}/> 
       <br></br>
     </label>
     <br></br>
     <button className="propertyBtn" type="submit" onClick={handleClick}>Add Property</button>
+    </div>
+    <div className="imgHome">
+        <img src="https://png.pngtree.com/png-vector/20230824/ourmid/pngtree-winter-cottage-house-vector-line-icon-png-image_6919087.png"></img>
+      </div>
+    </div>
     </div>
   </form>
      </div>
