@@ -10,7 +10,7 @@ const Property = () => {
     return (
         <div>
             <Navbar/>
-            <Brokerheader/>
+            <Brokerheader type="home"/>
             <div className="homeContainer">
                 <Test/>
                 

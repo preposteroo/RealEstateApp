@@ -1,9 +1,54 @@
 .propertyBtn{
-    color: black;
+    margin: 20px;
+    width:200px;
+    height:50px;
+    border-radius: 10px;
+    font-size: large;
+    background-color: rgb(117, 145, 115);
+    color:white;
 }
 .delete{
     border: 2px solid black;
 }
 .propertyInfo{
     border: 2px solid black; 
+    border-radius: 10px;
+    margin-top: 30px;
 }
+
+.addListing{
+    max-width: 1024px;
+    width: 100%;
+}
+.add{
+    border: 2px solid rgb(117, 145, 115);
+    max-width: 998px;
+    border-radius: 10px;
+    width: 100%;
+    background-color: rgb(117, 145, 115);
+    color:white;
+    padding:10px;
+}
+
+formInput{
+    border-radius: 10px;
+    height: 30px;
+    width:300px;
+    font-size: large;
+    margin: 10px;
+}
+
+label{
+    font-size: large;
+    margin-left: 30px;
+}
+
+.square{
+    display: flex;
+}
+
+.imgHome{
+    margin-left:30px;
+    margin-top:80px;
+}
+ 
